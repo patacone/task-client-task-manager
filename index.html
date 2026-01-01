@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <h1>Task Manager</h1>
+
+    <h3>1. Create Category</h3>
+    <input type="text" id="cat-name" placeholder="Category Name">
+    <button onclick="addCategory()">Add Category</button>
+    <br><br>
+
+    <h3>2. Create Task</h3>
+    <select id="cat-select">
+        <option value="">Select Category...</option>
+    </select>
+    
+    <input type="text" id="task-title" placeholder="Task Title">
+    <button onclick="addTask()">Add Task</button>
+
+    <hr>
+
+    <div style="display: flex; gap: 50px;">
+        <div>
+            <h3>Categories:</h3>
+            <ul id="category-list"></ul>
+        </div>
+        
+        <div>
+            <h3>Tasks:</h3>
+            <ul id="task-list"></ul>
+        </div>
+    </div>
+
+    <script>
+        const API = "http://127.0.0.1:8000/api";
+
+        async function loadAll() {
+            let catRes = await fetch(API + '/categories');
+            let categories = await catRes.json();
+            
+            let taskRes = await fetch(API + '/tasks');
+            let tasks = await taskRes.json();
+
+            drawCategories(categories);
+            fillDropdown(categories); 
+            drawTasks(tasks);
+        }
+
+        function drawCategories(data) {
+            let list = document.getElementById('category-list');
+            list.innerHTML = "";
+            data.forEach(c => {
+                let li = document.createElement('li');
+                li.innerText = c.name;
+                list.appendChild(li);
+            });
+        }
+
+        function fillDropdown(data) {
+            let select = document.getElementById('cat-select');
+
+            select.innerHTML = '<option value="">Select Category...</option>';
+            
+            data.forEach(c => {
+                let option = document.createElement('option');
+                option.value = c.id;   
+                option.innerText = c.name; 
+                select.appendChild(option);
+            });
+        }
+
+        function drawTasks(data) {
+            let list = document.getElementById('task-list');
+            list.innerHTML = "";
+            data.forEach(t => {
+                let li = document.createElement('li');
+                // Show Title AND Category Name
+                let catName = t.category ? t.category.name : 'Unknown';
+                li.innerText = t.title + " (" + catName + ")";
+                list.appendChild(li);
+            });
+        }
+
+        async function addCategory() {
+            let name = document.getElementById('cat-name').value.trim();
+            await fetch(API + '/categories', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ name: name })
+            });
+            document.getElementById('cat-name').value = "";
+            loadAll();
+        }
+
+        async function addTask() {
+            let title = document.getElementById('task-title').value.trim();
+            let catId = document.getElementById('cat-select').value.trim();
+
+            if(!catId) {
+                alert("Please select a category first!");
+                return;
+            }
+
+            await fetch(API + '/tasks', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ 
+                    title: title, 
+                    category_id: catId 
+                })
+            });
+
+            document.getElementById('task-title').value = "";
+            loadAll();
+        }
+
+        loadAll();
+    </script>
+
+</body>
+</html>
